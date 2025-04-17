@@ -6,6 +6,46 @@ This document is best viewed and edited online: [![hackmd-github-sync-badge](htt
 
 [TOC]
 
+## April 24th 2025 10:00 AM EDT/EST
+
+:::info
+
+- **Location:** https://zoom-lfx.platform.linuxfoundation.org/meeting/95637056950?password=be520c6f-362b-46fc-8f9b-eb4eaa81626e
+- **Date:** April 24th 2025 10:00 AM EDT/EST
+- **Host:** @dave-tucker
+- **Participants:** 
+:::
+
+- Issue Triage
+
+
+## April 17th 2025 10:00 AM EDT/EST
+
+:::info
+
+- **Location:** https://zoom-lfx.platform.linuxfoundation.org/meeting/95637056950?password=be520c6f-362b-46fc-8f9b-eb4eaa81626e
+- **Date:** April 17th 2025 10:00 AM EDT/EST
+- **Host:** @dave-tucker
+- **Participants:** Billy McFall, Andrew McDermott, Dave Tucker, Andre Fredette
+:::
+
+Agenda:
+  - Issue Triage
+  - [Billy] SPO:
+    - [operator security-profiles-operator (0.9.1)](https://github.com/k8s-operatorhub/community-operators/pull/5983) merged in the community OperatorHub. Still need pushed to the OCP OperatorHub. Still leaning on the maintainer.
+    - SPO had a CRD change and was failing `orange` tests, which are Operator upgrades. bpfman will have the same issue. To get passed it, SPO had to release the new version in a new channel. See the above PR when comes time for bpfman to push to OperatorHub for v0.6.0. See also [operator [CI] sonataflow-operator (10.0.0)](https://github.com/k8s-operatorhub/community-operators/pull/5428).
+    - Andy, do you know how to release in RedHat OperatorHub? Upstream release notes don't cover it. I think it's in the "catalog" directory in [OCP](https://github.com/openshift/bpfman-operator/tree/main/catalog).
+  - [Dave] Using Scarf (https://about.scarf.sh/)
+      - Use vanity URLs for image and binary downloads
+      - Tracks active users and adopters
+      - Dave to set this up as no objections
+  - [Andre] ROSA Issues
+      - Using Netlink gives better error messages. But everything fails
+      - File exists errors. Some state doesn't get properly cleaned up on the error paths.
+      - Next steps. Clean up state on failures
+      - Open Issue for proper supporting XDP frags/dispatcher.
+  - [Andre] https://github.com/bpfman/bpfman-operator/pull/426 is ready for review
+
 ## April 10th 2025 10:00 AM EDT/EST
 
 :::info
@@ -14,7 +54,6 @@ This document is best viewed and edited online: [![hackmd-github-sync-badge](htt
 - **Date:** April 10th 2025 10:00 AM EDT/EST
 - **Host:** @dave-tucker
 - **Participants:** Billy McFall, Andrew McDermott, Dave Tucker, Andre Fredette
-
 :::
 
 Agenda:
