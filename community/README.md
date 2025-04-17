@@ -95,4 +95,194 @@ Agenda:
     - Need fixes in the library we use from NetObserv. Timeline unclear. Will sync with that project and see when it's going to be released
 - [Billy] Leaving the project soon :sob: We need to help get his PRs reviewed and closed out as soon as possible.
 
+## 2025-04-03
 
+Attendees: Andre Fredette (Red Hat), Mohamed Mahmoud (Red Hat), Andy McDermott (Red Hat)
+
+Agenda:
+
+* Triage  
+  * None
+
+## 2025-03-27
+
+Attendees: Billy McFall (Red Hat), Dave Tucker (Red Hat), Andre Fredette (Red Hat), Ramon Marquez (Graylog)
+
+Agenda:
+
+* Triage  
+* API Review:  
+  * \[Andre\] Limits to CRD fields.  
+  * \[Andre\] State CRDs: Move fields from spec to status  
+* \[Andre\] API Options:  
+  * \+kubebuilder:default:=foo  
+  * \+optional  
+  * omitempty  
+  * \+required  
+  * \+kubebuilder:validation:Required
+
+## 2025-03-20
+
+Attendees: Billy McFall (Red Hat), Dave Tucker (Red Hat), Andre Fredette (Red Hat), Andrew McDermott (Red Hat)
+
+Agenda:
+
+* Triage  
+* API Review  
+  * \[Billy\] Working through enhancing all the field descriptions: [https://gist.github.com/Billy99/b871e60f04944d4b03c9c0106d2c8a43](https://gist.github.com/Billy99/b871e60f04944d4b03c9c0106d2c8a43)   
+  * \[Andre\] What to do about Fentry/Fexit program links in CRDs?  
+  * \[Mohamed\]  
+* \[Mohamed\] Network Observability Operator \- Run unprivileged  
+* \[Billy\] CLI Proposal (Includes possible new GetLinks() bpfman API)  
+  * [CLI Load/Attach Rework](https://docs.google.com/document/d/1IREMBGVpg-qCQOjZJUJqHfUjoP2twB2buIvxrxmiB_I/edit?tab=t.0#heading=h.xl2bf0yvn4t6)  
+* \[Andre\] Issue changing netns when path is /var/run/netns/\<netns\_name\>  
+  * Update: Fixed after this meeting.  
+* \[Andy\] SQLite DB still in progress
+
+## 2025-03-13
+
+Attendees: Billy McFall (Red Hat), Dave Tucker (Red Hat), Andre Fredette (Red Hat), Ramon Marquez (Graylog)
+
+Agenda:
+
+* Triage  
+* \[Mohamed\] API Review  
+  * Need help
+
+## 2025-03-06
+
+Attendees: Billy McFall (Red Hat), Dave Tucker (Red Hat), Ramon Marquez (Graylog), Andre Fredette (Red Hat)
+
+Agenda:
+
+* Triage  
+* Now using CNCF Zoom for Community Meetings:  
+  * bpfman LF Calendar: [https://zoom-lfx.platform.linuxfoundation.org/meetings/bpfman?view=week](https://zoom-lfx.platform.linuxfoundation.org/meetings/bpfman?view=week)   
+  * Zoom: https://zoom-lfx.platform.linuxfoundation.org/meeting/95637056950?password=be520c6f-362b-46fc-8f9b-eb4eaa81626e  
+  * Setup Slack Reminder (In case someone needs to change in the future):  
+    /remind \#bpfman "Reminder: Community meeting in 30 minutes \<https://zoom-lfx.platform.linuxfoundation.org/meetings/bpfman?view=week | here\>" at 9:30 am every Thursday  
+    /remind list  
+* FYI: SecurityProfileOperator has not posted v0.9.0 in OperatorHub yet because it is failing an upgrade test (see [failed test](https://github.com/k8s-operatorhub/community-operators/actions/runs/13525187621/job/37793970200?pr=5799)). When bpfman goes to post a v0.6.0, we may have a similar issue since we changed our API. Not 100% what the upgrade test is doing, but we should get ahead of this in bpfman when cutting the next release.  
+* 
+
+## 2025-02-27
+
+Attendees: Billy McFall (Red Hat), Dave Tucker (Red Hat), Ramon Marquez (Graylog)
+
+Agenda:
+
+* Triage  
+* \[Ramon\] Multiple kprobe programs and sharing maps issue  
+  * Documented in slack thread: [https://kubernetes.slack.com/archives/C04UJBW2553/p1740561760176319](https://kubernetes.slack.com/archives/C04UJBW2553/p1740561760176319)   
+  * Ramon to send sample programs and yamls so we can reproduce.  
+* \[Dave\]  
+  PSA: bpfman is going to Kubecon EU London
+  
+  We have a booth in the project pavillion on Weds Apr 2 10:45 \- 15:00\!  
+  If you are able to help out, please let me know by completing the form below.  
+  This is open to everyone \- maintainers, contributors and even just fans of the project
+  There may also be some limited edition swag available for booth helpers \- just saying  
+  [https://forms.gle/HnbwTt68HcNiy6iT7](https://forms.gle/HnbwTt68HcNiy6iT7)  
+
+  [How to ConvinceYour Boss](https://events.linuxfoundation.org/kubecon-cloudnativecon-europe/attend/convince-your-boss/)
+
+## 2025-02-20
+
+Attendees: Billy McFall (Red Hat), Andre Fredette (Red Hat), Mohamed Mahmoud (Red Hat),  Dave Tucker (Red Hat), Ramon Marquez (Graylog)
+
+Agenda:
+
+* Triage  
+* Welcome Ramon\!  
+  * Using bpfman to deploy uprobes and kprobes in K8s  
+  * It’s been good and it works\!  
+  * Initial friction with documentation  
+  * FEATURE REQUEST: Using ebpf-go. You use \`link\` to link to the write system call it tries the various arch specific prefixes. Can we do that in bpfman?  
+    * [https://github.com/bpfman/bpfman/issues/1435](https://github.com/bpfman/bpfman/issues/1435)   
+* \[Billy\] `make generate` fails to generate clientset  
+  * Haven’t fixed yet, but think it’s my GO version  
+  * [https://github.com/msherif1234/general-debug-tools/blob/main/update-go.sh](https://github.com/msherif1234/general-debug-tools/blob/main/update-go.sh)  
+  * [https://github.com/udhos/update-golang](https://github.com/udhos/update-golang)  
+* \[Dave\] i’m merging bpfman PRs \- lets hope it doesn’t break the operator 😂  
+* \[Dave\] bpfman CI rework in the pipeline, will also look at bpfman-operator because of 👆  
+* \[Andre\] I’m working on integrating [https://github.com/bpfman/bpfman-operator/pull/347](https://github.com/bpfman/bpfman-operator/pull/347) with [https://github.com/bpfman/bpfman/pull/1354](https://github.com/bpfman/bpfman/pull/1354)   
+* \[Dave\] oci-client and sigstore-rs work \- we’re going sync soon without nasty hacks 🎉
+
+## 2025-02-13
+
+Attendees: Billy McFall (Red Hat), Andre Fredette (Red Hat), Mohamed Mahmoud (Red Hat),  Andrew McDermott (Red Hat), Dave Tucker (Red Hat), Daniel Mellado (Red Hat)
+
+Agenda:
+
+* Triage  
+* \[Dave\] Load/Attach Split bpfman PR overview
+
+## 2025-02-06
+
+Attendees: Billy McFall (Red Hat), Andre Fredette (Red Hat), Mohamed Mahmoud (Red Hat),  Andrew McDermott (Red Hat), Dave Tucker (Red Hat)
+
+Agenda:
+
+* Triage  
+* \[Billy\] Use the CNCF Zoom account for meetings instead of gmeet  
+  * I dropped the ball. I said I would follow-up. WebSite says: “Most services can be requested through a Service Desk ticket, unless otherwise noted below.” Is that just the github issues? Couldn’t find any Zoom related issues in the open or closed issues.  
+* \[Billy\] CNCF Snyx Email \- “if you can confirm that Snyk is set up, we can mark this onboarding checklist complete”. Dave, they were hijacking your email so are we uninstalling or was that addressed?  
+  * Andre to follow up.  
+* 
+
+## 2025-01-30
+
+Attendees: Billy McFall (Red Hat), Andre Fredette (Red Hat), Mohamed Mahmoud (Red Hat),  Andrew McDermott (Red Hat), Dave Tucker (Red Hat), Shane Utt (Red Hat)
+
+Agenda:
+
+* Triage  
+* \[Dave\] Use the CNCF Zoom account for meetings instead of gmeet  
+  * Added [https://github.com/bpfman/bpfman/issues/1392](https://github.com/bpfman/bpfman/issues/1392)   
+* \[Andy\] v3 versus v4 github upload/download-artifact \- AFAICT, we’re using v4   
+  * [https://github.com/bpfman/bpfman-operator/issues/348](https://github.com/bpfman/bpfman-operator/issues/348)  
+  * [https://github.com/bpfman/bpfman/issues/1358](https://github.com/bpfman/bpfman/issues/1358)  
+* \[Andre\] I’m seeing the following error  
+  * $ bpfman image build \-c ./tests/integration-test/bpf/.output/app-test.bpf/ \--tag quay.io/bpfman-bytecode/app-test \--container-file ./Containerfile.bytecode.multi.arch  
+  * Error: Failed to parse bytecode: "./tests/integration-test/bpf/.output/app-test.bpf/bpf\_s390\_bpfeb.o" with error: BTF error  
+* \[Andre\] clang check seems to be using clang defaults.  
+* \[Dave\] quay.io stats?  
+* \[MM} Can we have the passed in args to function when use kretprobe ?
+
+## 2025-01-23
+
+Meeting canceled due to conflicts.
+
+## 2025-01-16
+
+Attendees: Billy McFall (Red Hat), Mohamed Mahmoud (Red Hat), Dave Tucker (Red Hat)
+
+Agenda:
+
+* Triage  
+* \[Billy\] SLED behavior \- seeing some flakiness with PR where sled inserts were rearranged.  
+* (this can go last) \[shane\] growing the community
+
+## 2025-01-09
+
+Attendees: Billy McFall (Red Hat), Andre Fredette (Red Hat), Mohamed Mahmoud (Red Hat), Daniel Mellado (Red Hat), Dave Tucker (Red Hat), Shane Utt (Red Hat)
+
+Agenda:
+
+* Triage  
+* v0.5.5 has been released  
+  * Not posted on OperatorHub.io, see [Issue\#5502](https://github.com/k8s-operatorhub/community-operators/issues/5502)  
+* New pr from Dependabot ([\#359](https://github.com/bpfman/bpfman-operator/pull/359)) also requires Go v1.23.  
+  * I think it replaced the previous one  
+  * Are Dependabot updates on hold now until we do the Go upgrade?  
+    Answer: Yes  
+* Open PR review  
+* Load/Attach Split Status
+
+## 2025-01-02
+
+Attendees: Billy McFall (Red Hat), Andre Fredette (Red Hat), Andrew McDermott (Red Hat)
+
+Agenda:
+
+* Release v0.5.5 discussion
