@@ -6,6 +6,19 @@ This document is best viewed and edited online: [![hackmd-github-sync-badge](htt
 
 [TOC]
 
+## May 1st 2025 10:00 AM EDT/EST
+
+:::info
+
+- **Location:** https://zoom-lfx.platform.linuxfoundation.org/meeting/95637056950?password=be520c6f-362b-46fc-8f9b-eb4eaa81626e
+- **Date:** May 1st 2025 10:00 AM EDT/EST
+- **Host:** @dave-tucker
+- **Participants:**
+:::
+
+Agenda:
+  - Issue Triage
+
 ## April 24th 2025 10:00 AM EDT/EST
 
 :::info
@@ -13,11 +26,44 @@ This document is best viewed and edited online: [![hackmd-github-sync-badge](htt
 - **Location:** https://zoom-lfx.platform.linuxfoundation.org/meeting/95637056950?password=be520c6f-362b-46fc-8f9b-eb4eaa81626e
 - **Date:** April 24th 2025 10:00 AM EDT/EST
 - **Host:** @dave-tucker
-- **Participants:** 
+- **Participants:** Dave Tucker, Andy McDermott, Andre Fredette, Billy McFall, Mohamed Mahmoud
 :::
 
-- Issue Triage
-
+Agenda:
+    - Issue Triage
+        - XDP Dispatcher should support fragment handling bpfman/bpfman#1527
+            - High priority, Medium, Lets get it done soon
+        - Investigate XDP attach/detach behaviour bpfman/bpfman#1528
+            - In some cases, we did get successful attachments on some interfaces. Not exactly sure why since they all have large MTUs. Possible a kernel bug, or in the driver. Requires more investigation. Medium.
+        - Interface Discovery due to duplicate network namespaces bpfman/bpfman-operator#433
+            - Fix Posted. PR needs to be reviewed.
+        - Dispatchers and BPF state not always cleaned up after CRD delete bpfman/bpfman#1537
+            - PR up and reviewed. Ready for another look
+        - Don't call init_image_manager if we don't need to bpfman/bpfman#1538
+            - Potential performance improvement - move down closer to where it's used.
+            - Dispatchers are a lot slower than other programs.
+            - Small fix for now
+            - High, Small, Andre will take care of it
+        - Use official release of netobserv-ebpf-agent when PR is included bpfman/bpfman-operator#434
+            - Can use SHA from main since the PR has merged
+            - Need to do a release on netobserv-ebpf-agent (later on)
+    - Undeploy issue
+        - Security Profile Operator issue was for any SELinux example programs not being undeployed (examples-selinux). It hangs, because SPOs finalizer doesn't get cleaned up.
+            - SPO we made it a dependency of bpfman via OperatorHub. It got installed in our namespace. They had a bug when they went to fetch DS they got the wrong one so they never finish reconcile and all things stayed in Pending state. 
+            - On delete, SPO hung because the whatever added the finalizer to a object disappeared
+        - Andy's undeploy issues is because there's an io.bpfman finalizer on our D/S
+            - Only via Make, not via OperatorHub
+            - Andy has a fix in progress.
+        - Privileges in OpenShift need looking into - Dave to do when ne has time.
+        - 2/3 node lock up on repeated deploy/undeploy on OpenShift. Is this a bpfman issue? Or potentially a logging issue?
+        - Removing kube-rbac-proxy is in flight also.
+    - [Ramon] Update on the uprobe issue. Still the same issue deploying on K8s + when deploying locally from the CLI also. Changed the order in which the programs where ordered/registered in the Go SDK code. Now it works fine :exploding_head: - order of execution should not be important... but it is. Still using bpfman 5.6. 
+    - [Mohamed] Aya Split BTF (will try and include in the next bpfman release and the next aya release)
+    - [Mohamed] IPSEC in NetObserv shows that input/output probes are loaded, but one side not being hit. Dave T to debug at some point.
+    - [Mohamed] API review comments
+        - Billy has description changes that need doing
+        - Then there's lots more work to sync the upstream changes back to downstream and re-request review
+        
 
 ## April 17th 2025 10:00 AM EDT/EST
 
