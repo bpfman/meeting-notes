@@ -6,6 +6,112 @@ This document is best viewed and edited online: [![hackmd-github-sync-badge](htt
 
 [TOC]
 
+## June 19th 10:00 AM EDT/EST
+
+:::info
+- **Location:** https://zoom-lfx.platform.linuxfoundation.org/meeting/95637056950?password=be520c6f-362b-46fc-8f9b-eb4eaa81626e
+- **Date:** June 19th 2025 10:00 AM EDT/EST
+- **Host:** @dave-tucker
+- **Participants:** Dave Tucker, Andy McDermott
+:::
+
+Agenda:
+  - Issue Triage
+  - Maintainers PR was merged
+  - SPO: Dave merged the PR to remove the depedency on Security Profile Operator. Docs still need updating before we cut a release.
+  - Upstream Release 5.7 to happen soon. Last call for any additional fixes to be included in the release.
+
+
+## June 12th 10:00 AM EDT/EST
+
+Cancelled
+
+## June 5th 10:00 AM EDT/EST
+
+:::info
+
+- **Location:** https://zoom-lfx.platform.linuxfoundation.org/meeting/95637056950?password=be520c6f-362b-46fc-8f9b-eb4eaa81626e
+- **Date:** June 5th 2025 10:00 AM EDT/EST
+- **Host:** @dave-tucker
+- **Participants:** Andre Fredette, Billy McFall, Andy McDermott, Hanshal Mehta
+:::
+
+Agenda:
+  - Issue Triage
+  - Maintainer PR
+      - Needs to be approved by 2/3 maintainers
+      - Billy to approve
+      - Dave to update the table
+  - Security Profiles Operator
+      - Billy's out
+      - We'll merge the open PR in bpfman-operator to remove the dependnecy and update the docs
+      - Can revisit for the next scheduled bpfman release
+  - Andy has a PR up! Makes the operator self-healing in respect to the resources that it owns
+  - Billy's been working on Triton Kernel Manager. Looking at cosign stuff. You can do some verification upfront, get the digest out. Maybe pull by digest only on each node.
+  - Billy has a docs PR that's been open since May 1. That could do with review/merge.
+  - 
+
+## May 29nd 2025 10:00 AM EDT/EST
+
+:::info
+
+- **Location:** https://zoom-lfx.platform.linuxfoundation.org/meeting/95637056950?password=be520c6f-362b-46fc-8f9b-eb4eaa81626e
+- **Date:** May 29nd 2025 10:00 AM EDT/EST
+- **Host:** @dave-tucker
+- **Participants:** Andre Fredette, Billy McFall, Andy McDermott, Hanshal Mehta
+:::
+
+Agenda:
+  - Issue Triage
+      - No issue to triage.
+  - [Andy] Metrics on local hardware it works but in cloud it doesn't.
+      - Not working because agent runs in host network and security groups blocking in cloud.
+      - Can fix by playing with Security Groups for clouds OR
+      - Can fix by adding a DaemonSet that runs in container network, which could then collect metrics from shared volume between metrics DaemonSet and Agent.
+  -  [Andre] Two PRs for Wiki badges
+  -  [Billy] Security Profile Operator
+      -  Issue reported where in a OCP deployment (with SPO) a kprobe program can't be deleted.
+      -  Billy will respond to slack thread with summary of SPO PRs.
+
+## May 22nd 2025 10:00 AM EDT/EST
+
+:::info
+
+- **Location:** https://zoom-lfx.platform.linuxfoundation.org/meeting/95637056950?password=be520c6f-362b-46fc-8f9b-eb4eaa81626e
+- **Date:** May 22nd 2025 10:00 AM EDT/EST
+- **Host:** @dave-tucker
+- **Participants:** Andre Fredette, Billy McFall
+:::
+
+Agenda:
+  - Issue Triage
+      - No issue to triage.
+  - Meeting cancelled - No topics
+
+## May 8th 2025 10:00 AM EDT/EST
+
+:::info
+
+- **Location:** https://zoom-lfx.platform.linuxfoundation.org/meeting/95637056950?password=be520c6f-362b-46fc-8f9b-eb4eaa81626e
+- **Date:** May 8th 2025 10:00 AM EDT/EST
+- **Host:** @dave-tucker
+- **Participants:** Dave Tucker, Andy McDermott, Andre Fredette, Billy McFall
+:::
+
+Agenda:
+  - Issue Triage
+      - No issue to triage.
+  - [Andre] API Review PR Update
+      - We have write authority on that PR if we accept the GitHub invites.
+  - [Billy] Security Profile Operator: Not sure about v0.9.1. Looks like they moved to GoLang 1.24 and not able to push downstream.
+      - Still in limbo. v0.9.0 fixes namespace issue
+      - Testing with v0.9.1 not ready for testing yet
+  - [Billy] bpfman lessons learned for TKM
+      - NodeStatus CRD
+          - [Server side apply](
+https://kubernetes.io/docs/reference/using-api/server-side-apply/) might be an option
+      - OCI Image propogation
+
 ## May 1st 2025 10:00 AM EDT/EST
 
 :::info
@@ -18,6 +124,11 @@ This document is best viewed and edited online: [![hackmd-github-sync-badge](htt
 
 Agenda:
   - Issue Triage
+      - No issue to triage
+      - An issue to be created for the bpfman mountpoint issue. Billy will be looking at CSI anyway - unrelated to bpfman - but will push any fixes if he's able to.
+  - [Andy] to keep working on the CSI
+  - [Dave] working on SQLite Migration
+  - [Billy] Andre merged the API review PR. Wasn't able to push to Mohammed's PR for API-review so blocked on that for now.
 
 ## April 24th 2025 10:00 AM EDT/EST
 
